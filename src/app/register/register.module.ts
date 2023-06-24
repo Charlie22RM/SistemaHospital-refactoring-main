@@ -7,12 +7,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    RegisterComponent
+    RegisterComponent,
   ],
   imports: [
     CommonModule,
     AngularMaterialModule,
-    ReactiveFormsModule
-  ]
+    ReactiveFormsModule,
+  ],
 })
 export class RegisterModule { }
