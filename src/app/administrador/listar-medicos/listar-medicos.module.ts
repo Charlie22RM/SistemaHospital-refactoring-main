@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 import { ListarMedicosComponent } from './listar-medicos.component';
 import { AngularMaterialModule } from 'src/app/angular-material/angular-material.module';
 
-
-
 @NgModule({
   declarations: [
     ListarMedicosComponent
