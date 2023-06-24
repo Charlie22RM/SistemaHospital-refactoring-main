@@ -10,8 +10,6 @@ import { MatInputModule } from '@angular/material/input';
 import { PacientesModule } from './pacientes/pacientes.module';
 import { HistorialClinicoModule } from './historial-clinico/historial-clinico.module';
 
-
-
 @NgModule({
   declarations: [
     MedicosComponent,
