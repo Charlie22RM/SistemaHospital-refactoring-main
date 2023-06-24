@@ -11,6 +11,6 @@ export class UserService {
   constructor(private http: HttpClient, private valueService: ValueService) { }
 
   createUser() {
-    let url = `${environment.apiUrl}auth/user`;
+    const url = `${environment.apiUrl}auth/user`;
   }
 }
