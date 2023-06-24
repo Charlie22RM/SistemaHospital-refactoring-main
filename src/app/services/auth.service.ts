@@ -13,7 +13,7 @@ export class AuthService {
 
   public login(paramsData: any): Observable<any> {
     let url = `${environment.apiUrl}auth/login`;
-    let headers = new HttpHeaders({
+    const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
     let options = { headers };
@@ -23,7 +23,7 @@ export class AuthService {
   register(user: UserCreation) {
     let url = `${environment.apiUrl}auth/register`;
     user.rol = 1;
-    let headers = new HttpHeaders({
+    const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
     let options = { headers };

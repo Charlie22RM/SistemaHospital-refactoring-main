@@ -13,7 +13,7 @@ export class MedicoService {
 
   public getAllNames() {
     let url = `${environment.apiUrl}consultorios/medicos/nombres`;
-    let headers = new HttpHeaders({
+    const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
     let options = { headers };
@@ -22,7 +22,7 @@ export class MedicoService {
 
   public getAll() {
     let url = `${environment.apiUrl}medicos`;
-    let headers = new HttpHeaders({
+    const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
     let options = { headers };
@@ -32,7 +32,7 @@ export class MedicoService {
   public createMedico(data: any) {
     let url = `${environment.apiUrl}medicos`;
     data.rol = 2;
-    let headers = new HttpHeaders({
+    const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
     let options = { headers };
@@ -41,7 +41,7 @@ export class MedicoService {
 
   public getMedicoById(id: number) {
     let url = `${environment.apiUrl}medicos/${id}`;
-    let headers = new HttpHeaders({
+    const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
     let options = { headers };
@@ -50,7 +50,7 @@ export class MedicoService {
 
   public updateMedico(id: number, data: MedicoDisplay) {
     let url = `${environment.apiUrl}medicos/${id}`;
-    let headers = new HttpHeaders({
+    const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
     let options = { headers };
@@ -60,7 +60,7 @@ export class MedicoService {
 
   public deleteMedico(id: number) {
     let url = `${environment.apiUrl}medicos/${id}`;
-    let headers = new HttpHeaders({
+    const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
     let options = { headers };

@@ -11,7 +11,7 @@ export class CitaService {
 
   public getAllById(user_id: number) {
     let url = `${environment.apiUrl}cita/${user_id}`;
-    let headers = new HttpHeaders({
+    const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
     let options = { headers };
@@ -20,7 +20,7 @@ export class CitaService {
 
   public getLastById(user_id: number) {
     let url = `${environment.apiUrl}cita/last/${user_id}`;
-    let headers = new HttpHeaders({
+    const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
     let options = { headers };
@@ -30,7 +30,7 @@ export class CitaService {
 
   public createCita(data: any) {
     let url = `${environment.apiUrl}cita`;
-    let headers = new HttpHeaders({
+    const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
     let options = { headers };

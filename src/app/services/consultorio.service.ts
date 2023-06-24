@@ -12,7 +12,7 @@ export class ConsultorioService {
 
   public getAll() {
     let url = `${environment.apiUrl}consultorios`;
-    let headers = new HttpHeaders({
+    const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
     let options = { headers };
@@ -21,7 +21,7 @@ export class ConsultorioService {
 
   public getConsultorios() {
     let url = `${environment.apiUrl}consultorios`;
-    let headers = new HttpHeaders({
+    const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
     let options = { headers };
@@ -31,7 +31,7 @@ export class ConsultorioService {
 
   public getOneById(consultorio_id: number): Promise<Consultorio> {
     let url = `${environment.apiUrl}consultorios/${consultorio_id}`;
-    let headers = new HttpHeaders({
+    const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
     let options = { headers };
@@ -40,7 +40,7 @@ export class ConsultorioService {
 
   public editConsultorio(consultorio_id: number, data: any) {
     let url = `${environment.apiUrl}consultorios/${consultorio_id}`;
-    let headers = new HttpHeaders({
+    const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
     let options = { headers };
@@ -49,7 +49,7 @@ export class ConsultorioService {
 
   public createConsultorio(data: any) {
     let url = `${environment.apiUrl}consultorios`;
-    let headers = new HttpHeaders({
+    const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
     let options = { headers };
@@ -58,7 +58,7 @@ export class ConsultorioService {
 
   public deleteConsultorio(consultorio_id: number) {
     let url = `${environment.apiUrl}consultorios/${consultorio_id}`;
-    let headers = new HttpHeaders({
+    const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
     let options = { headers };
