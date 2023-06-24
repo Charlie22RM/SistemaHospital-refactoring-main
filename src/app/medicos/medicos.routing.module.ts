@@ -8,15 +8,15 @@ const routes: Routes = [
   {
     path: '', component: MedicosComponent, children: [
       { path: '', component: PacientesComponent },
-      { path: 'historial/:paciente_id', component: HistorialClinicoComponent }
-    ]
+      { path: 'historial/:paciente_id', component: HistorialClinicoComponent },
+    ],
   },
 
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 
 export class MedicosRoutingModule { }

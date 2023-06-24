@@ -12,8 +12,8 @@ import { MatSnackBar, MatSnackBarVerticalPosition } from '@angular/material/snac
 })
 export class LoginComponent implements OnInit {
   validateFrm!: FormGroup;
-  userErrorMessage: string = '';
-  passwordErrorMessage: string = '';
+  userErrorMessage = '';
+  passwordErrorMessage = '';
   durationInSeconds = 5;
   verticalPosition: MatSnackBarVerticalPosition = 'top';
   constructor(
@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    //this.valueService.CerrarSesion();
+    // this.valueService.CerrarSesion();
     console.log('asd');
     this.validateFrm = this.fb.group({
       email: [null, [Validators.required, Validators.email]],
@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  ingresar(formData: any) {
+  ingresar(formData: unknown) {
     this.authService.login(formData).subscribe({
       next: async (res) => {
         console.log(res);

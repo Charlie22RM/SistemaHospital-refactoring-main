@@ -9,7 +9,7 @@ import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
   declarations: [
-    PacientesComponent
+    PacientesComponent,
   ],
   imports: [
     CommonModule,
@@ -19,7 +19,7 @@ import { MatRadioModule } from '@angular/material/radio';
     MatRadioModule,
     MatFormFieldModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
 })
 export class PacientesModule { }

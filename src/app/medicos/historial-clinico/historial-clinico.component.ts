@@ -16,7 +16,8 @@ import { MatSnackBar, MatSnackBarVerticalPosition } from '@angular/material/snac
 })
 export class HistorialClinicoComponent implements OnInit {
   enfermedades!: FormGroup;
-  private paciente_id: number = 0;
+  // eslint-disable-next-line camelcase
+  private paciente_id = 0;
   historial!: HistorialDisplay;
   durationInSeconds = 5;
   verticalPosition: MatSnackBarVerticalPosition = 'top';
@@ -56,7 +57,8 @@ export class HistorialClinicoComponent implements OnInit {
   }
 
   async ngOnInit() {
-    console.log("aqui estoy");
+    console.log('aqui estoy');
+    // eslint-disable-next-line camelcase
     this.paciente_id = this.activatedRoute.snapshot.params['paciente_id'];
     const promise1 = this.getDataPaciente();
     Promise.all([promise1]);
@@ -65,7 +67,7 @@ export class HistorialClinicoComponent implements OnInit {
   getDataPaciente() {
     this.pacienteService.getHistorial(this.paciente_id).subscribe({
       next: async (res) => {
-        console.log("prueba");
+        console.log('prueba');
         console.log(res);
         this.historial = res;
         console.log(this.historial.historialClinico);
@@ -113,15 +115,15 @@ export class HistorialClinicoComponent implements OnInit {
   async editarHistorial(formData: any) {
     const nombres = {
       nombre: formData.nombre,
-      apellido: formData.apellido
+      apellido: formData.apellido,
     };
-    console.log("nombres: ", nombres);
+    console.log('nombres: ', nombres);
 
     const datosRestantes = {
       // Obtener los valores del formulario, excluyendo nombre y apellido
       ...formData,
       nombre: null,
-      apellido: null
+      apellido: null,
     };
     try {
       await this.pacienteService.updateNombreYapellido(this.paciente_id, nombres);
@@ -132,7 +134,7 @@ export class HistorialClinicoComponent implements OnInit {
     try {
       const historial_id = this.historial.historialClinico!.id;
       await this.pacienteService.updateHistorial(historial_id, datosRestantes);
-      this.openSnackBar("Historial editado");
+      this.openSnackBar('Historial editado');
       // Retraso de 2sg para mostrar el mensaje
       await new Promise((resolve) => setTimeout(resolve, 2000));
       this.router.navigate(['/medicos']);

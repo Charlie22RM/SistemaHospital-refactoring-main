@@ -15,7 +15,7 @@ export interface DatosPacientes {
 @Component({
   selector: 'app-pacientes',
   templateUrl: './pacientes.component.html',
-  styleUrls: ['./pacientes.component.css']
+  styleUrls: ['./pacientes.component.css'],
 })
 export class PacientesComponent implements OnInit {
   data!: PacienteDisplay[];
@@ -40,7 +40,7 @@ export class PacientesComponent implements OnInit {
           console.log(res);
           this.data = res;
           this.dataSource = new MatTableDataSource(this.data);
-        }
+        },
       }
     );
   }
@@ -51,11 +51,14 @@ export class PacientesComponent implements OnInit {
   }
 
   editElement(paciente: PacienteDisplay) {
+    // eslint-disable-next-line camelcase
     const paciente_id = paciente.id;
+    // eslint-disable-next-line camelcase
     this.router.navigate(['/medicos/historial', paciente_id]);
   }
 
   deleteElement(paciente: PacienteDisplay) {
+    // eslint-disable-next-line camelcase
     const paciente_id = paciente.id;
     this.pacienteService.deletePaciente(paciente_id).subscribe(() => {
       this.pacienteService.getAll().subscribe({
