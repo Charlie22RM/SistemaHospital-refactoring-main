@@ -67,7 +67,7 @@ export class HistorialClinicoComponent implements OnInit {
       next: async (res) => {
         console.log("prueba");
         console.log(res);
-        this.historial=res;
+        this.historial = res;
         console.log(this.historial.historialClinico);
         this.enfermedades.patchValue({
           nombre: this.historial.nombre,
@@ -110,12 +110,12 @@ export class HistorialClinicoComponent implements OnInit {
       });
     }
   }
-  async editarHistorial(formData:any) {
-    const nombres ={
+  async editarHistorial(formData: any) {
+    const nombres = {
       nombre: formData.nombre,
       apellido: formData.apellido
     }
-    console.log("nombres: ",nombres);
+    console.log("nombres: ", nombres);
 
     const datosRestantes = {
       // Obtener los valores del formulario, excluyendo nombre y apellido
@@ -123,30 +123,30 @@ export class HistorialClinicoComponent implements OnInit {
       nombre: null,
       apellido: null
     };
-    try{
-      await this.pacienteService.updateNombreYapellido( this.paciente_id,nombres);
-    }catch(err){
-      this.openSnackBar( 'error');
+    try {
+      await this.pacienteService.updateNombreYapellido(this.paciente_id, nombres);
+    } catch (err) {
+      this.openSnackBar('error');
       console.log(err);
     }
     try {
-      const historial_id= this.historial.historialClinico!.id;
-      await this.pacienteService.updateHistorial(historial_id,datosRestantes);
+      const historial_id = this.historial.historialClinico!.id;
+      await this.pacienteService.updateHistorial(historial_id, datosRestantes);
       this.openSnackBar("Historial editado");
       //Retraso de 2sg para mostrar el mensaje
-await new Promise((resolve) => setTimeout(resolve, 2000));          
-    this.router.navigate(['/medicos']);
-    } catch (err:any) {
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      this.router.navigate(['/medicos']);
+    } catch (err: any) {
       // Captura el error y maneja el caso de error aquí
-      this.openSnackBar( 'error');
+      this.openSnackBar('error');
       console.log(err);
     }
-    
+
   }
 
 
-  openSnackBar(Message:string) {
-    this.snackBar.open(Message,'Cerrar',{
+  openSnackBar(Message: string) {
+    this.snackBar.open(Message, 'Cerrar', {
       duration: this.durationInSeconds * 1000,
       verticalPosition: this.verticalPosition,
     });

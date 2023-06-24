@@ -4,8 +4,8 @@ import { Router } from '@angular/router';
 import { PacienteDisplay } from 'src/app/models/paciente';
 import { PacientesService } from 'src/app/services/pacientes.service';
 
-export interface DatosPacientes{
-  id:number,
+export interface DatosPacientes {
+  id: number,
   email: string;
   nombre: string;
   apellido: string;
@@ -17,12 +17,12 @@ export interface DatosPacientes{
   templateUrl: './pacientes.component.html',
   styleUrls: ['./pacientes.component.css']
 })
-export class PacientesComponent implements OnInit{
+export class PacientesComponent implements OnInit {
   data!: PacienteDisplay[];
   constructor(
     private router: Router,
     private pacienteService: PacientesService
-    ){}
+  ) { }
   displayedColumns: string[] = [
     'id',
     'email',
@@ -36,9 +36,9 @@ export class PacientesComponent implements OnInit{
   ngOnInit(): void {
     this.pacienteService.getAll().subscribe(
       {
-        next: async (res)=>{
+        next: async (res) => {
           console.log(res);
-          this.data=res;
+          this.data = res;
           this.dataSource = new MatTableDataSource(this.data);
         }
       }
@@ -50,13 +50,13 @@ export class PacientesComponent implements OnInit{
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  editElement(paciente: PacienteDisplay){
-    const paciente_id= paciente.id;
-    this.router.navigate(['/medicos/historial',paciente_id]);
+  editElement(paciente: PacienteDisplay) {
+    const paciente_id = paciente.id;
+    this.router.navigate(['/medicos/historial', paciente_id]);
   }
 
-  deleteElement(paciente: PacienteDisplay){
-    const paciente_id= paciente.id;
+  deleteElement(paciente: PacienteDisplay) {
+    const paciente_id = paciente.id;
     this.pacienteService.deletePaciente(paciente_id).subscribe(() => {
       this.pacienteService.getAll().subscribe({
         next: (res) => {

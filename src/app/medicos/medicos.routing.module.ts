@@ -5,13 +5,14 @@ import { PacientesComponent } from './pacientes/pacientes.component';
 import { HistorialClinicoComponent } from './historial-clinico/historial-clinico.component';
 
 const routes: Routes = [
-    { path: '', component: MedicosComponent, children: [
-        { path: '', component: PacientesComponent },
-        { path: 'historial/:paciente_id', component: HistorialClinicoComponent }
-      ]  
-    },
-      
-  ];
+  {
+    path: '', component: MedicosComponent, children: [
+      { path: '', component: PacientesComponent },
+      { path: 'historial/:paciente_id', component: HistorialClinicoComponent }
+    ]
+  },
+
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

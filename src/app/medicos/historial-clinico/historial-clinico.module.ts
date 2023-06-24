@@ -5,9 +5,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { AngularMaterialModule } from 'src/app/angular-material/angular-material.module';
 import { HistorialClinicoComponent } from './historial-clinico.component';
-import {MatRadioModule} from '@angular/material/radio';
-import {MatGridListModule} from '@angular/material/grid-list';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 
@@ -27,7 +27,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatInputModule,
     ReactiveFormsModule,
     MatGridListModule,
-   MatCheckboxModule, JsonPipe
+    MatCheckboxModule, JsonPipe
   ]
 })
 export class HistorialClinicoModule { }
