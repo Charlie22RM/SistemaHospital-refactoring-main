@@ -21,6 +21,7 @@ export class HistorialClinicoComponent implements OnInit {
   private paciente_id = 0;
   historial!: HistorialDisplay;
   data!: CitaDisplay[];
+  activatedRoute: any;
   constructor(
     private router: Router,
     private _formBuilder: FormBuilder,
@@ -62,7 +63,7 @@ export class HistorialClinicoComponent implements OnInit {
   ngOnInit(): void {
     console.log('aqui estoy');
     // eslint-disable-next-line camelcase
-    this.paciente_id = this.valueService.id;
+    this.paciente_id = this.activatedRoute.snapshot.params['paciente_id'];
     console.log(this.paciente_id);
     const promise1 = this.getDataPaciente();
     const promise2 = this.getLastCita();
