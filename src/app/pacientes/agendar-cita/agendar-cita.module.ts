@@ -8,7 +8,7 @@ import { AgendarCitaComponent } from './agendar-cita.component';
 
 @NgModule({
   declarations: [
-    AgendarCitaComponent
+    AgendarCitaComponent,
   ],
   imports: [
     CommonModule,
@@ -16,7 +16,7 @@ import { AgendarCitaComponent } from './agendar-cita.component';
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
 })
 export class AgendarCitaModule { }

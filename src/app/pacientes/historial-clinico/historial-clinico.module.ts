@@ -11,7 +11,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
-    HistorialClinicoComponent
+    HistorialClinicoComponent,
   ],
   imports: [
     CommonModule,
@@ -23,7 +23,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatInputModule,
     ReactiveFormsModule,
     MatGridListModule,
-    MatCheckboxModule, JsonPipe
-  ]
+    MatCheckboxModule,
+    JsonPipe,
+  ],
 })
 export class HistorialClinicoModule { }

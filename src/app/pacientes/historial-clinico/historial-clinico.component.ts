@@ -17,7 +17,8 @@ import { CitaDisplay } from 'src/app/models/cita';
 })
 export class HistorialClinicoComponent implements OnInit {
   enfermedades!: FormGroup;
-  private paciente_id: number = 0;
+  // eslint-disable-next-line camelcase
+  private paciente_id = 0;
   historial!: HistorialDisplay;
   data!: CitaDisplay[];
   constructor(
@@ -59,11 +60,12 @@ export class HistorialClinicoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log("aqui estoy");
+    console.log('aqui estoy');
+    // eslint-disable-next-line camelcase
     this.paciente_id = this.valueService.id;
     console.log(this.paciente_id);
-    let promise1 = this.getDataPaciente();
-    let promise2 = this.getLastCita();
+    const promise1 = this.getDataPaciente();
+    const promise2 = this.getLastCita();
     Promise.all([promise1, promise2]);
   }
 
@@ -99,25 +101,25 @@ export class HistorialClinicoComponent implements OnInit {
           otrosDescripcion: this.historial.historialClinico?.otrosDescripcion,
         });
       },
-    })
-    this.enfermedades.get('diabetes')!.disable();
-    this.enfermedades.get('tiroideas')!.disable();
-    this.enfermedades.get('hipertension')!.disable();
-    this.enfermedades.get('cardiopatia')!.disable();
-    this.enfermedades.get('traumatismo')!.disable();
-    this.enfermedades.get('cancer')!.disable();
-    this.enfermedades.get('otros')!.disable();
+    }),
+    this.enfermedades.get('diabetes')?.disable();
+    this.enfermedades.get('tiroideas')?.disable();
+    this.enfermedades.get('hipertension')?.disable();
+    this.enfermedades.get('cardiopatia')?.disable();
+    this.enfermedades.get('traumatismo')?.disable();
+    this.enfermedades.get('cancer')?.disable();
+    this.enfermedades.get('otros')?.disable();
   }
 
   getLastCita() {
     this.citaService.getLastById(this.paciente_id).subscribe({
       next: async (res) => {
         this.data = res;
-        this.enfermedades.get('fecha')!.setValue(res[0].fecha);
-        this.enfermedades.get('hora')!.setValue(res[0].hora);
-        this.enfermedades.get('especialidad')!.setValue(res[0].consultorios[0].especialidad);
-      }
-    })
+        this.enfermedades.get('fecha')?.setValue(res[0].fecha);
+        this.enfermedades.get('hora')?.setValue(res[0].hora);
+        this.enfermedades.get('especialidad')?.setValue(res[0].consultorios[0].especialidad);
+      },
+    });
   }
 
 }
