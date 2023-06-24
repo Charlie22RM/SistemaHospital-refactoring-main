@@ -7,8 +7,6 @@ import { AngularMaterialModule } from 'src/app/angular-material/angular-material
 import { PacientesComponent } from './pacientes.component';
 import { MatRadioModule } from '@angular/material/radio';
 
-
-
 @NgModule({
   declarations: [
     PacientesComponent
