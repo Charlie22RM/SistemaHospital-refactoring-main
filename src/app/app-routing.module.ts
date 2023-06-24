@@ -7,12 +7,12 @@ import { RegisterComponent } from './register/register.component';
 
 
 const routes: Routes = [
-    { path: '', redirectTo: 'login', pathMatch: 'full'},
-    { path: 'login', component: LoginComponent },
-    { path: 'register', component: RegisterComponent },
-    { path: 'pacientes', loadChildren: () => import('./pacientes/pacientes.module').then(x => x.PacientesModule) },
-    { path: 'medicos', loadChildren: () => import('./medicos/medicos.module').then(x => x.MedicosModule) },
-    { path: 'administrador', loadChildren: () => import('./administrador/administrador.module').then(x => x.AdministradorModule) },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'pacientes', loadChildren: () => import('./pacientes/pacientes.module').then(x => x.PacientesModule) },
+  { path: 'medicos', loadChildren: () => import('./medicos/medicos.module').then(x => x.MedicosModule) },
+  { path: 'administrador', loadChildren: () => import('./administrador/administrador.module').then(x => x.AdministradorModule) },
 
 ];
 

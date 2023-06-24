@@ -13,7 +13,7 @@ export class ValueService {
 
   private idSource = new Subject<number>();
   idChallange$ = this.idSource.asObservable();
-  constructor(private ss: SessionService) { 
+  constructor(private ss: SessionService) {
     if (this.ss.getItem('token') !== '') {
       this.token = this.ss.getItem('token');
       this.tokenSource.next(this.token);
@@ -30,7 +30,7 @@ export class ValueService {
     this.tokenSource.next(nombre);
   }
 
-  public setId(id:number) {
+  public setId(id: number) {
     this.id = id;
     this.ss.setItem('id', id);
     this.idSource.next(id);
@@ -48,7 +48,7 @@ export class ValueService {
     this.ss.setItem('id', '');
     this.tokenSource.next('');
   }
-  public CerrarSesion(){
+  public CerrarSesion() {
     this.delToken();
     this.delId();
   }

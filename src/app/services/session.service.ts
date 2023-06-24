@@ -6,7 +6,7 @@ import { StorageService } from './storage.service';
 })
 export class SessionService {
   private storage: any;
-  constructor(private storageService: StorageService) {}
+  constructor(private storageService: StorageService) { }
 
   setItem(key: string, value: any): void {
     this.storageService.secureStorage.setItem(key, value);

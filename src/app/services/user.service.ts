@@ -8,9 +8,9 @@ import { ValueService } from './value.service';
 })
 export class UserService {
 
-  constructor(private http: HttpClient,private valueService: ValueService) { }
+  constructor(private http: HttpClient, private valueService: ValueService) { }
 
-  createUser(){
+  createUser() {
     let url = `${environment.apiUrl}auth/user`;
   }
 }

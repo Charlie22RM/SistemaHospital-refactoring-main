@@ -11,7 +11,7 @@ export class MedicoService {
 
   constructor(private http: HttpClient) { }
 
-  public getAllNames(){
+  public getAllNames() {
     let url = `${environment.apiUrl}consultorios/medicos/nombres`;
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -20,7 +20,7 @@ export class MedicoService {
     return lastValueFrom(this.http.get<any>(url, options));
   }
 
-  public getAll(){
+  public getAll() {
     let url = `${environment.apiUrl}medicos`;
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -29,41 +29,41 @@ export class MedicoService {
     return this.http.get<any>(url, options);
   }
 
-  public createMedico(data:any){
+  public createMedico(data: any) {
     let url = `${environment.apiUrl}medicos`;
-    data.rol=2;
+    data.rol = 2;
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
     let options = { headers };
-    return this.http.post<any>(url,data,options);
+    return this.http.post<any>(url, data, options);
   }
 
-  public getMedicoById(id:number){
+  public getMedicoById(id: number) {
     let url = `${environment.apiUrl}medicos/${id}`;
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
     let options = { headers };
-    return  this.http.get<any>(url,options);
+    return this.http.get<any>(url, options);
   }
 
-  public updateMedico(id:number,data:MedicoDisplay){
+  public updateMedico(id: number, data: MedicoDisplay) {
     let url = `${environment.apiUrl}medicos/${id}`;
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
     let options = { headers };
-    return  this.http.put<any>(url,data,options);
+    return this.http.put<any>(url, data, options);
   }
 
 
-  public deleteMedico(id:number){
+  public deleteMedico(id: number) {
     let url = `${environment.apiUrl}medicos/${id}`;
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
     let options = { headers };
-    return  this.http.delete<any>(url,options);
+    return this.http.delete<any>(url, options);
   }
 }

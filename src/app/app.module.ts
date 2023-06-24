@@ -17,7 +17,7 @@ import { LoginModule } from './login/login.module';
 @NgModule({
   declarations: [
     AppComponent,
-   
+
   ],
   imports: [
     BrowserModule,
@@ -30,7 +30,7 @@ import { LoginModule } from './login/login.module';
     AngularMaterialModule
   ],
   providers: [],
-  exports:[],
+  exports: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
