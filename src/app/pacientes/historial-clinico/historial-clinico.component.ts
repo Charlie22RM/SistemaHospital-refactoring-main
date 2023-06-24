@@ -59,14 +59,17 @@ export class HistorialClinicoComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     console.log('aqui estoy');
     // eslint-disable-next-line camelcase
-    this.paciente_id = this.valueService.id;
     console.log(this.paciente_id);
     const promise1 = this.getDataPaciente();
     const promise2 = this.getLastCita();
-    Promise.all([promise1, promise2]);
+    await Promise.all([promise1, promise2]);
+
+    // Aquí puedes realizar alguna acción con los resultados de las promesas
+    console.log('Datos del paciente:', promise1);
+    console.log('Última cita:', promise2);
   }
 
   getDataPaciente() {
