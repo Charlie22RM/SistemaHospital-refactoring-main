@@ -6,5 +6,5 @@ export class HistorialDisplay {
     public nombre: string = '',
     public apellido: string = '',
     public historialClinico?: Historial,
-  ) {}
+  ) { }
 }

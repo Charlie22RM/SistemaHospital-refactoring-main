@@ -7,7 +7,7 @@ export class UserCreation {
     public apellido: string = '',
     public direccion: string = '',
     public rol: number = 1
-  ) {}
+  ) { }
 }
 
 export class UserDisplay {
@@ -18,5 +18,5 @@ export class UserDisplay {
     public apellido: string = '',
     public direccion: string = '',
     public rol: number = 1
-  ) {}
+  ) { }
 }
