@@ -14,3 +14,4 @@ export class PacientesComponent implements OnInit {
   ngOnInit(): void {
   }
 }
+

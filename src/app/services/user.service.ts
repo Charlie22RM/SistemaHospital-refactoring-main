@@ -1,16 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from '../environments/environments';
 import { ValueService } from './value.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
 
   constructor(private http: HttpClient, private valueService: ValueService) { }
 
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   createUser() {
-    const url = `${environment.apiUrl}auth/user`;
   }
 }
+

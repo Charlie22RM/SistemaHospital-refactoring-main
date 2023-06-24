@@ -5,54 +5,62 @@ import { lastValueFrom } from 'rxjs';
 import { Historial } from '../models/historial';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PacientesService {
 
   constructor(private http: HttpClient) { }
 
   public getAll() {
-    let url = `${environment.apiUrl}user/pacientes`;
+    const url = `${environment.apiUrl}user/pacientes`;
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
-    let options = { headers };
+    const options = { headers };
     return this.http.get<any>(url, options);
   }
 
+  // eslint-disable-next-line camelcase
   public getHistorial(paciente_id: number) {
-    let url = `${environment.apiUrl}user/historial/${paciente_id}`;
+    // eslint-disable-next-line camelcase
+    const url = `${environment.apiUrl}user/historial/${paciente_id}`;
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
-    let options = { headers };
+    const options = { headers };
     return this.http.get<any>(url, options);
   }
 
+  // eslint-disable-next-line camelcase
   public updateHistorial(historial_id: number, data: Historial) {
-    let url = `${environment.apiUrl}historial-clinico/${historial_id}`;
+    // eslint-disable-next-line camelcase
+    const url = `${environment.apiUrl}historial-clinico/${historial_id}`;
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
-    let options = { headers };
+    const options = { headers };
     return lastValueFrom(this.http.put<any>(url, data, options));
   }
 
+  // eslint-disable-next-line camelcase
   public updateNombreYapellido(paciente_id: number, data: any) {
-    let url = `${environment.apiUrl}user/${paciente_id}`;
+    // eslint-disable-next-line camelcase
+    const url = `${environment.apiUrl}user/${paciente_id}`;
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
-    let options = { headers };
+    const options = { headers };
     return lastValueFrom(this.http.put<any>(url, data, options));
   }
 
+  // eslint-disable-next-line camelcase
   public deletePaciente(paciente_id: number) {
-    let url = `${environment.apiUrl}user/${paciente_id}`;
+    // eslint-disable-next-line camelcase
+    const url = `${environment.apiUrl}user/${paciente_id}`;
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
-    let options = { headers };
+    const options = { headers };
     return this.http.delete<any>(url, options);
   }
 }

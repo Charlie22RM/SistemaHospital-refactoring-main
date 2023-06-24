@@ -3,7 +3,7 @@ import { Subject } from 'rxjs';
 import { SessionService } from './session.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ValueService {
   token!: string;

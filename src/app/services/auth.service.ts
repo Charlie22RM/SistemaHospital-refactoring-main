@@ -5,28 +5,28 @@ import { environment } from '../environments/environments';
 import { UserCreation } from '../models/user';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
 
   constructor(private http: HttpClient) { }
 
   public login(paramsData: any): Observable<any> {
-    let url = `${environment.apiUrl}auth/login`;
+    const url = `${environment.apiUrl}auth/login`;
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
-    let options = { headers };
+    const options = { headers };
     return this.http.post<any>(url, paramsData, options);
   }
 
   register(user: UserCreation) {
-    let url = `${environment.apiUrl}auth/register`;
+    const url = `${environment.apiUrl}auth/register`;
     user.rol = 1;
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
-    let options = { headers };
+    const options = { headers };
     return this.http.post<any>(url, user, options);
   }
 }

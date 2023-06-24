@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import * as CryptoJS from 'crypto-js';
 
-declare var require: any;
+declare let require: any;
 
 const SecureStorage = require('secure-web-storage');
 const SECRET_KEY: any = '$1ST3M@D3FLUJ0PR0Y3CT@D0';

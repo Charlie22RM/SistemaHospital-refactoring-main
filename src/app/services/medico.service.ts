@@ -5,65 +5,65 @@ import { lastValueFrom } from 'rxjs';
 import { MedicoDisplay } from '../models/medico';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MedicoService {
 
   constructor(private http: HttpClient) { }
 
   public getAllNames() {
-    let url = `${environment.apiUrl}consultorios/medicos/nombres`;
+    const url = `${environment.apiUrl}consultorios/medicos/nombres`;
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
-    let options = { headers };
+    const options = { headers };
     return lastValueFrom(this.http.get<any>(url, options));
   }
 
   public getAll() {
-    let url = `${environment.apiUrl}medicos`;
+    const url = `${environment.apiUrl}medicos`;
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
-    let options = { headers };
+    const options = { headers };
     return this.http.get<any>(url, options);
   }
 
   public createMedico(data: any) {
-    let url = `${environment.apiUrl}medicos`;
+    const url = `${environment.apiUrl}medicos`;
     data.rol = 2;
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
-    let options = { headers };
+    const options = { headers };
     return this.http.post<any>(url, data, options);
   }
 
   public getMedicoById(id: number) {
-    let url = `${environment.apiUrl}medicos/${id}`;
+    const url = `${environment.apiUrl}medicos/${id}`;
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
-    let options = { headers };
+    const options = { headers };
     return this.http.get<any>(url, options);
   }
 
   public updateMedico(id: number, data: MedicoDisplay) {
-    let url = `${environment.apiUrl}medicos/${id}`;
+    const url = `${environment.apiUrl}medicos/${id}`;
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
-    let options = { headers };
+    const options = { headers };
     return this.http.put<any>(url, data, options);
   }
 
 
   public deleteMedico(id: number) {
-    let url = `${environment.apiUrl}medicos/${id}`;
+    const url = `${environment.apiUrl}medicos/${id}`;
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
-    let options = { headers };
+    const options = { headers };
     return this.http.delete<any>(url, options);
   }
 }
