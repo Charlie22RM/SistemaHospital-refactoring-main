@@ -30,6 +30,7 @@ export class AgregarConsultorioComponent implements OnInit {
   ) {
     this.validateFrm = this.fb.group({
       especialidad: ['', [Validators.required]],
+      // eslint-disable-next-line camelcase
       medico_id: [
         '',
         [Validators.required, this.validateSeleccionEspecialidad],
@@ -37,7 +38,7 @@ export class AgregarConsultorioComponent implements OnInit {
     });
   }
   async ngOnInit() {
-    let promise1 = await this.getMedicosNames();
+    const promise1 = await this.getMedicosNames();
 
   }
 
@@ -63,7 +64,7 @@ export class AgregarConsultorioComponent implements OnInit {
 
   async getMedicosNames() {
     try {
-      let response = await this.medicoService.getAllNames();
+      const response = await this.medicoService.getAllNames();
       const opcionesMedicos: OpcionesMedicos[] = [];
       response.forEach(
         (usuario: { id: number; nombre: string; apellido: string }) => {
@@ -87,8 +88,8 @@ export class AgregarConsultorioComponent implements OnInit {
       {
         next: async (res) => {
           console.log(res);
-          this.openSnackBar("Consultorio creado");
-          //Retraso de 2sg para mostrar el mensaje
+          this.openSnackBar('Consultorio creado');
+          // Retraso de 2sg para mostrar el mensaje
           await new Promise((resolve) => setTimeout(resolve, 2000));
           this.router.navigate(['/administrador']);
         },

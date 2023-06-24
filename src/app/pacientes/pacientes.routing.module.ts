@@ -11,14 +11,14 @@ const routes: Routes = [
       { path: '', component: AgendarCitaComponent },
       { path: 'citas', component: CitaAgendadaComponent },
       { path: 'historial', component: HistorialClinicoComponent },
-    ]
+    ],
   },
 
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 
 export class PacientesRoutingModule { }
