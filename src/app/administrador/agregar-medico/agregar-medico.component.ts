@@ -7,7 +7,7 @@ import { MedicoService } from 'src/app/services/medico.service';
 @Component({
   selector: 'app-agregar-medico',
   templateUrl: './agregar-medico.component.html',
-  styleUrls: ['./agregar-medico.component.css']
+  styleUrls: ['./agregar-medico.component.css'],
 })
 export class AgregarMedicoComponent implements OnInit {
   validateFrm!: FormGroup;
@@ -46,13 +46,13 @@ export class AgregarMedicoComponent implements OnInit {
   }
 
 
-  crearcuenta(formData: any) {
+  crearcuenta(formData: unknown) {
     this.medicoService.createMedico(formData).subscribe(
       {
         next: async (res) => {
           console.log(res);
-          this.openSnackBar("cuenta creada");
-          //Retraso de 2sg para mostrar el mensaje
+          this.openSnackBar('cuenta creada');
+          // Retraso de 2sg para mostrar el mensaje
           await new Promise((resolve) => setTimeout(resolve, 2000));
           this.router.navigate(['/administrador/listar-medicos']);
         },
