@@ -61,7 +61,7 @@ export class HistorialClinicoComponent implements OnInit {
     // eslint-disable-next-line camelcase
     this.paciente_id = this.activatedRoute.snapshot.params['paciente_id'];
     const promise1 = this.getDataPaciente();
-    Promise.all([promise1]);
+    await Promise.all([promise1]);
   }
 
   getDataPaciente() {
