@@ -22,7 +22,7 @@ export class PacientesService {
 
   public getHistorial(paciente_id: number) {
     let url = `${environment.apiUrl}user/historial/${paciente_id}`;
-    let headers = new HttpHeaders({
+    const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
     let options = { headers };
@@ -31,7 +31,7 @@ export class PacientesService {
 
   public updateHistorial(historial_id: number, data: Historial) {
     let url = `${environment.apiUrl}historial-clinico/${historial_id}`;
-    let headers = new HttpHeaders({
+    const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
     let options = { headers };
@@ -40,7 +40,7 @@ export class PacientesService {
 
   public updateNombreYapellido(paciente_id: number, data: any) {
     let url = `${environment.apiUrl}user/${paciente_id}`;
-    let headers = new HttpHeaders({
+    const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
     let options = { headers };
@@ -49,7 +49,7 @@ export class PacientesService {
 
   public deletePaciente(paciente_id: number) {
     let url = `${environment.apiUrl}user/${paciente_id}`;
-    let headers = new HttpHeaders({
+    const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
     let options = { headers };
