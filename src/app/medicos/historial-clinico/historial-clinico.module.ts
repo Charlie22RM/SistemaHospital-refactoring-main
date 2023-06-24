@@ -28,6 +28,6 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     ReactiveFormsModule,
     MatGridListModule,
     MatCheckboxModule, JsonPipe
-  ]
+  ],
 })
 export class HistorialClinicoModule { }
