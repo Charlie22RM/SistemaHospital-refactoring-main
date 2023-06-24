@@ -30,17 +30,9 @@ export class EditarPacienteComponent implements OnInit {
     });
   }
 
-
   submitForm() {
 
   }
-
-
-  crearcuenta() {
-
-  }
-
-
 
   regresar() {
     this.router.navigate(['/administrador/listar-pacientes']);
