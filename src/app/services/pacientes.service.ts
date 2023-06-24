@@ -13,7 +13,7 @@ export class PacientesService {
 
   public getAll() {
     let url = `${environment.apiUrl}user/pacientes`;
-    let headers = new HttpHeaders({
+    const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
     let options = { headers };
