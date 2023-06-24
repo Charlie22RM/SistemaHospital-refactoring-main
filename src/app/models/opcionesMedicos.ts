@@ -1,6 +1,6 @@
 export class OpcionesMedicos {
-    constructor(
+  constructor(
         public id: number = 0,
         public label: string = '',
-    ) { }
+  ) { }
 }

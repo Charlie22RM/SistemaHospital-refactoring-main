@@ -1,6 +1,6 @@
 export class opcionesConsultorios {
-    constructor(
+  constructor(
         public id: number = 0,
         public especialidad: string = '',
-    ) { }
+  ) { }
 }
