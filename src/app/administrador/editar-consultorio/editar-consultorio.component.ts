@@ -67,7 +67,7 @@ export class EditarConsultorioComponent implements OnInit {
         next: async (res) => {
           console.log(res);
           this.openSnackBar("Consultorio editado");
-          //Retraso de 2sg para mostrar el mensaje
+          // Retraso de 2sg para mostrar el mensaje
           await new Promise((resolve) => setTimeout(resolve, 2000));
           this.router.navigate(['/administrador']);
         },
