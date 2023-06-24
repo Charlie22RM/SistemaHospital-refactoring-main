@@ -3,7 +3,6 @@ import {
   AbstractControl,
   FormBuilder,
   FormGroup,
-  FormsModule,
   Validators,
 } from '@angular/forms';
 import { ConsultorioService } from 'src/app/services/consultorio.service';
@@ -55,8 +54,8 @@ export class AgendarCitaComponent implements OnInit {
     });
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   async ngOnInit() {
-    let promise1 = await this.getConsultoriosNames();
 
   }
 
@@ -83,7 +82,7 @@ export class AgendarCitaComponent implements OnInit {
 
   async getConsultoriosNames() {
     try {
-      let response = await this.consultorioService.getConsultorios();
+      const response = await this.consultorioService.getConsultorios();
       const opcionesConsultorios: opcionesConsultorios[] = [];
       console.log(response);
       response.forEach((consultorio: { id: any; especialidad: any }) => {
@@ -106,9 +105,9 @@ export class AgendarCitaComponent implements OnInit {
       userId: this.valueService.id,
       consultorioId: formData.especialidad,
       fecha: fechaFormateada,
-      hora: formData.hora
+      hora: formData.hora,
     };
-    console.log("data: ", data);
+    console.log('data: ', data);
     this.citaService.createCita(data).subscribe({
       next: async (res) => {
         console.log(res);

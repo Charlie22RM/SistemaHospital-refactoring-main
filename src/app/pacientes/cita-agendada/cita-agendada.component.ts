@@ -12,13 +12,10 @@ export interface CitaAgendada {
   horario: string;
 }
 
-
-
-
 @Component({
   selector: 'app-cita-agendada',
   templateUrl: './cita-agendada.component.html',
-  styleUrls: ['./cita-agendada.component.css']
+  styleUrls: ['./cita-agendada.component.css'],
 })
 export class CitaAgendadaComponent implements OnInit {
   data!: CitaDisplay[];
@@ -31,6 +28,7 @@ export class CitaAgendadaComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    // eslint-disable-next-line camelcase
     const paciente_id = this.valueService.id;
     this.citaService.getAllById(paciente_id).subscribe(
       {

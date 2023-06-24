@@ -7,12 +7,12 @@ import { CitaAgendadaComponent } from './cita-agendada.component';
 
 @NgModule({
   declarations: [
-    CitaAgendadaComponent
+    CitaAgendadaComponent,
   ],
   imports: [
     CommonModule,
     MatTableModule,
-    AngularMaterialModule
-  ]
+    AngularMaterialModule,
+  ],
 })
 export class CitaAgendadaModule { }

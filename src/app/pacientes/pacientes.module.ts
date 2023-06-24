@@ -14,7 +14,7 @@ import { HistorialClinicoModule } from './historial-clinico/historial-clinico.mo
 @NgModule({
   declarations: [
     PacientesComponent,
-    NavbarComponent
+    NavbarComponent,
   ],
   imports: [
     CommonModule,
@@ -27,8 +27,7 @@ import { HistorialClinicoModule } from './historial-clinico/historial-clinico.mo
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
-    ReactiveFormsModule
-
-  ]
+    ReactiveFormsModule,
+  ],
 })
 export class PacientesModule { }

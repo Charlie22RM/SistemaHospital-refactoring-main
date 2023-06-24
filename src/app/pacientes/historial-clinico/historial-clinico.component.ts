@@ -17,7 +17,8 @@ import { CitaDisplay } from 'src/app/models/cita';
 })
 export class HistorialClinicoComponent implements OnInit {
   enfermedades!: FormGroup;
-  private paciente_id: number = 0;
+  // eslint-disable-next-line camelcase
+  private paciente_id = 0;
   historial!: HistorialDisplay;
   data!: CitaDisplay[];
   constructor(
@@ -59,11 +60,12 @@ export class HistorialClinicoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log("aqui estoy");
+    console.log('aqui estoy');
+    // eslint-disable-next-line camelcase
     this.paciente_id = this.valueService.id;
     console.log(this.paciente_id);
-    let promise1 = this.getDataPaciente();
-    let promise2 = this.getLastCita();
+    const promise1 = this.getDataPaciente();
+    const promise2 = this.getLastCita();
     Promise.all([promise1, promise2]);
   }
 
