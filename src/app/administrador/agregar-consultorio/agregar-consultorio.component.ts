@@ -38,7 +38,7 @@ export class AgregarConsultorioComponent implements OnInit {
   }
   async ngOnInit() {
     let promise1 = await this.getMedicosNames();
-  
+
   }
 
   validateSeleccionEspecialidad(control: AbstractControl) {
@@ -84,24 +84,24 @@ export class AgregarConsultorioComponent implements OnInit {
 
   addConsultorio(formData: any) {
     this.consultorioService.createConsultorio(formData).subscribe(
-    {
-      next: async (res) => {
-        console.log(res);
-        this.openSnackBar("Consultorio creado");
+      {
+        next: async (res) => {
+          console.log(res);
+          this.openSnackBar("Consultorio creado");
           //Retraso de 2sg para mostrar el mensaje
-await new Promise((resolve) => setTimeout(resolve, 2000));          
-        this.router.navigate(['/administrador']);
-      },
-      error: (err) => {
-        if (err.error.statusCode === 409) {
-           err.error.message;
-          this.openSnackBar( err.error.message);
-        }
-      },
-    });
+          await new Promise((resolve) => setTimeout(resolve, 2000));
+          this.router.navigate(['/administrador']);
+        },
+        error: (err) => {
+          if (err.error.statusCode === 409) {
+            err.error.message;
+            this.openSnackBar(err.error.message);
+          }
+        },
+      });
   }
-  openSnackBar(Message:string) {
-    this.snackBar.open(Message,'Cerrar',{
+  openSnackBar(Message: string) {
+    this.snackBar.open(Message, 'Cerrar', {
       duration: this.durationInSeconds * 1000,
       verticalPosition: this.verticalPosition,
     });
