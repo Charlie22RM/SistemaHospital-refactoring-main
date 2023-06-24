@@ -85,7 +85,7 @@ export class AgendarCitaComponent implements OnInit {
       const response = await this.consultorioService.getConsultorios();
       const opcionesConsultorios: opcionesConsultorios[] = [];
       console.log(response);
-      response.forEach((consultorio: { id: any; especialidad: any }) => {
+      response.forEach((consultorio: { id: unknown; especialidad: unknown }) => {
         const opcionConsultorio = {
           id: consultorio.id,
           especialidad: `${consultorio.especialidad}`,

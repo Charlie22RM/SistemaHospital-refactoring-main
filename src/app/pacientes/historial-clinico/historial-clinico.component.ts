@@ -101,25 +101,25 @@ export class HistorialClinicoComponent implements OnInit {
           otrosDescripcion: this.historial.historialClinico?.otrosDescripcion,
         });
       },
-    })
-    this.enfermedades.get('diabetes')!.disable();
-    this.enfermedades.get('tiroideas')!.disable();
-    this.enfermedades.get('hipertension')!.disable();
-    this.enfermedades.get('cardiopatia')!.disable();
-    this.enfermedades.get('traumatismo')!.disable();
-    this.enfermedades.get('cancer')!.disable();
-    this.enfermedades.get('otros')!.disable();
+    }),
+    this.enfermedades.get('diabetes')?.disable();
+    this.enfermedades.get('tiroideas')?.disable();
+    this.enfermedades.get('hipertension')?.disable();
+    this.enfermedades.get('cardiopatia')?.disable();
+    this.enfermedades.get('traumatismo')?.disable();
+    this.enfermedades.get('cancer')?.disable();
+    this.enfermedades.get('otros')?.disable();
   }
 
   getLastCita() {
     this.citaService.getLastById(this.paciente_id).subscribe({
       next: async (res) => {
         this.data = res;
-        this.enfermedades.get('fecha')!.setValue(res[0].fecha);
-        this.enfermedades.get('hora')!.setValue(res[0].hora);
-        this.enfermedades.get('especialidad')!.setValue(res[0].consultorios[0].especialidad);
-      }
-    })
+        this.enfermedades.get('fecha')?.setValue(res[0].fecha);
+        this.enfermedades.get('hora')?.setValue(res[0].hora);
+        this.enfermedades.get('especialidad')?.setValue(res[0].consultorios[0].especialidad);
+      },
+    });
   }
 
 }
