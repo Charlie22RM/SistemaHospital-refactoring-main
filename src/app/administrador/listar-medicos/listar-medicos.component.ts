@@ -8,9 +8,9 @@ import { MedicoService } from 'src/app/services/medico.service';
   templateUrl: './listar-medicos.component.html',
   styleUrls: ['./listar-medicos.component.css']
 })
-export class ListarMedicosComponent implements OnInit{
+export class ListarMedicosComponent implements OnInit {
   data!: MedicoDisplay[];
-  dataSource= new MatTableDataSource<MedicoDisplay>();
+  dataSource = new MatTableDataSource<MedicoDisplay>();
   displayedColumns: string[] = [
     'id',
     'email',
@@ -23,19 +23,19 @@ export class ListarMedicosComponent implements OnInit{
   constructor(
     private router: Router,
     private medicoService: MedicoService
-    ){}
+  ) { }
 
-    ngOnInit(): void {
-      this.medicoService.getAll().subscribe(
-        {
-          next: async (res)=>{
-            this.data=res;
-            console.log("data: ",this.data);
-            this.dataSource = new MatTableDataSource(this.data);
-          },
-        }
-      );
-    }
+  ngOnInit(): void {
+    this.medicoService.getAll().subscribe(
+      {
+        next: async (res) => {
+          this.data = res;
+          console.log("data: ", this.data);
+          this.dataSource = new MatTableDataSource(this.data);
+        },
+      }
+    );
+  }
 
 
   applyFilter(event: Event) {
@@ -47,9 +47,9 @@ export class ListarMedicosComponent implements OnInit{
   }
   editMedico(medico: MedicoDisplay) {
     const medico_id = medico.id;
-    this.router.navigate(['administrador/editar-medico',medico_id]);
+    this.router.navigate(['administrador/editar-medico', medico_id]);
   }
-  deleteMedico(medico:MedicoDisplay) {
+  deleteMedico(medico: MedicoDisplay) {
     const medico_id = medico.id;
     this.medicoService.deleteMedico(medico_id).subscribe(() => {
       this.medicoService.getAll().subscribe({

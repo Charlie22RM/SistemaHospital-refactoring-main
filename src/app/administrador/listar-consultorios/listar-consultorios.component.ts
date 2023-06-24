@@ -19,19 +19,19 @@ export class ListarConsultoriosComponent implements OnInit {
     'apellido_medico',
     'actions',
   ];
-  dataSource= new MatTableDataSource<Consultorio>();
+  dataSource = new MatTableDataSource<Consultorio>();
   filterValue: string = '';
   constructor(
     private router: Router,
     private consultorioService: ConsultorioService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.consultorioService.getAll().subscribe(
       {
-        next: async (res) =>{
+        next: async (res) => {
           console.log(res);
-          this.data=res;
+          this.data = res;
           this.dataSource = new MatTableDataSource(this.data);
         },
       }
@@ -47,9 +47,9 @@ export class ListarConsultoriosComponent implements OnInit {
     const consultorio_id = consultorio.id;
     this.router.navigate(['administrador/editar-consultorio', consultorio_id]);
   }
-  deleteConsultorio(consultorio: Consultorio){
+  deleteConsultorio(consultorio: Consultorio) {
     const consultorio_id = consultorio.id;
-    
+
     this.consultorioService.deleteConsultorio(consultorio_id).subscribe(() => {
       this.consultorioService.getAll().subscribe({
         next: (res) => {

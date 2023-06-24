@@ -62,22 +62,22 @@ export class EditarConsultorioComponent implements OnInit {
   }
   editConsultorio(formData: any) {
     const medicoSeleccionada = this.validateFrm.value.medico_id;
-    this.consultorioService.editConsultorio(this.consultorio_id,formData).subscribe(
-    {
-      next: async (res) => {
-        console.log(res);
-        this.openSnackBar("Consultorio editado");
+    this.consultorioService.editConsultorio(this.consultorio_id, formData).subscribe(
+      {
+        next: async (res) => {
+          console.log(res);
+          this.openSnackBar("Consultorio editado");
           //Retraso de 2sg para mostrar el mensaje
-await new Promise((resolve) => setTimeout(resolve, 2000));          
-        this.router.navigate(['/administrador']);
-      },
-      error: (err) => {
-        if (err.error.statusCode === 409) {
-           err.error.message;
-          this.openSnackBar( err.error.message);
-        }
-      },
-    });
+          await new Promise((resolve) => setTimeout(resolve, 2000));
+          this.router.navigate(['/administrador']);
+        },
+        error: (err) => {
+          if (err.error.statusCode === 409) {
+            err.error.message;
+            this.openSnackBar(err.error.message);
+          }
+        },
+      });
   }
   async getConsultorio(consultorio_id: number) {
     try {
@@ -129,8 +129,8 @@ await new Promise((resolve) => setTimeout(resolve, 2000));
     }
     return null;
   }
-  openSnackBar(Message:string) {
-    this.snackBar.open(Message,'Cerrar',{
+  openSnackBar(Message: string) {
+    this.snackBar.open(Message, 'Cerrar', {
       duration: this.durationInSeconds * 1000,
       verticalPosition: this.verticalPosition,
     });

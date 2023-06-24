@@ -1,12 +1,14 @@
 mat-tab-group {
-    margin: 20px; /* margen exterior */
-  }
-  
-  mat-tab-group mat-tab {
-    padding: 10px; /* margen interior */
-  }
+  margin: 20px;
+  /* margen exterior */
+}
 
-  /* Structure */
+mat-tab-group mat-tab {
+  padding: 10px;
+  /* margen interior */
+}
+
+/* Structure */
 table {
   width: 90%;
 }

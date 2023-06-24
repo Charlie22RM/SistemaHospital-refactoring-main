@@ -30,7 +30,7 @@ const routes: Routes = [
       { path: 'agregar-paciente', component: AgregarPacienteComponent },
       { path: 'editar-paciente', component: EditarPacienteComponent },
       { path: 'consultas-externas', component: ConsultasExternasComponent },
-      
+
     ],
   },
 ];
@@ -39,4 +39,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class AdministradorRoutingModule {}
+export class AdministradorRoutingModule { }

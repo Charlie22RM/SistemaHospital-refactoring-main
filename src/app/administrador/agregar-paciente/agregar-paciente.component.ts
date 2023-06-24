@@ -8,19 +8,19 @@ import { MatSnackBar, MatSnackBarVerticalPosition } from '@angular/material/snac
   templateUrl: './agregar-paciente.component.html',
   styleUrls: ['./agregar-paciente.component.css']
 })
-export class AgregarPacienteComponent implements OnInit{
+export class AgregarPacienteComponent implements OnInit {
   validateFrm!: FormGroup;
   durationInSeconds = 5;
   verticalPosition: MatSnackBarVerticalPosition = 'top';
   constructor(
     private router: Router,
     private fb: FormBuilder,
-  
+
     private snackBar: MatSnackBar
-  ) {}
+  ) { }
 
   ngOnInit(): void {
-    this.validateFrm= this.fb.group({
+    this.validateFrm = this.fb.group({
       email: [null, [Validators.required, Validators.email]],
       password: [null, [Validators.required]],
       cedula: [null, [Validators.required]],
@@ -29,18 +29,18 @@ export class AgregarPacienteComponent implements OnInit{
       direccion: [null, [Validators.required]],
     });
   }
-  
 
-  submitForm(){
- 
+
+  submitForm() {
+
   }
 
 
   crearcuenta() {
-    
+
   }
 
-  
+
 
   regresar() {
     this.router.navigate(['/administrador/listar-pacientes']);

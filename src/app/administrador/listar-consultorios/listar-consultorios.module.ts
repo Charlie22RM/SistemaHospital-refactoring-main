@@ -5,14 +5,14 @@ import { AngularMaterialModule } from "src/app/angular-material/angular-material
 
 
 @NgModule({
-    declarations: [
+  declarations: [
     ListarConsultoriosComponent
   ],
-  imports:[
+  imports: [
     CommonModule,
     AngularMaterialModule
   ],
 })
 export class ListarConsultoriosModule {
-  
+
 }

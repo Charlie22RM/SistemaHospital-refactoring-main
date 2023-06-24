@@ -6,9 +6,7 @@
         <mat-form-field class="ancho margin-bottom" appearance="fill">
           <mat-label>Especialidad</mat-label>
           <input matInput formControlName="especialidad" />
-          <mat-error
-            *ngIf="validateFrm.get('especialidad')?.hasError('required')"
-          >
+          <mat-error *ngIf="validateFrm.get('especialidad')?.hasError('required')">
             La especialidad es requerida
           </mat-error>
         </mat-form-field>
@@ -25,21 +23,10 @@
         </mat-form-field>
       </div>
       <div class="button-row">
-        <button
-          class="custom-button"
-          mat-raised-button
-          mat-button
-          color="primary"
-        >
+        <button class="custom-button" mat-raised-button mat-button color="primary">
           Editar
         </button>
-        <button
-          (click)="regresar()"
-          class="custom-button"
-          mat-raised-button
-          mat-button
-          color="primary"
-        >
+        <button (click)="regresar()" class="custom-button" mat-raised-button mat-button color="primary">
           Regresar
         </button>
       </div>

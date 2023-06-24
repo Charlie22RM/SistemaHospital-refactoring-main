@@ -24,7 +24,7 @@ export class EditarMedicoComponent implements OnInit {
     private medicoService: MedicoService,
     private activatedRoute: ActivatedRoute,
     private snackBar: MatSnackBar
-  ) { 
+  ) {
     this.validateFrm = this.fb.group({
       email: [null, [Validators.required, Validators.email]],
       password: [null, [Validators.required]],
@@ -61,11 +61,11 @@ export class EditarMedicoComponent implements OnInit {
 
   }
 
- async getMedico(medico_id:number){
+  async getMedico(medico_id: number) {
     this.medicoService.getMedicoById(medico_id).subscribe(
       {
         next: async (res) => {
-          console.log("medico: ",res);
+          console.log("medico: ", res);
           this.validateFrm = this.fb.group({
             email: [res.email, [Validators.required, Validators.email]],
             password: [res.password, [Validators.required]],
@@ -77,33 +77,33 @@ export class EditarMedicoComponent implements OnInit {
         },
         error: (err) => {
           if (err.error.statusCode === 409) {
-             err.error.message;
-            this.openSnackBar( err.error.message);
+            err.error.message;
+            this.openSnackBar(err.error.message);
           }
         },
       });
- }
+  }
 
- openSnackBar(Message:string) {
-  this.snackBar.open(Message,'Cerrar',{
-    duration: this.durationInSeconds * 1000,
-    verticalPosition: this.verticalPosition,
-  });
-}
+  openSnackBar(Message: string) {
+    this.snackBar.open(Message, 'Cerrar', {
+      duration: this.durationInSeconds * 1000,
+      verticalPosition: this.verticalPosition,
+    });
+  }
 
-  editMedico(data:any){
-    this.medicoService.updateMedico(this.medico_id,data).subscribe(
+  editMedico(data: any) {
+    this.medicoService.updateMedico(this.medico_id, data).subscribe(
       {
         next: async (res) => {
           this.openSnackBar("Medico editado");
-            //Retraso de 2sg para mostrar el mensaje
-  await new Promise((resolve) => setTimeout(resolve, 2000));          
+          //Retraso de 2sg para mostrar el mensaje
+          await new Promise((resolve) => setTimeout(resolve, 2000));
           this.router.navigate(['/administrador/listar-medicos']);
         },
         error: (err) => {
           if (err.error.statusCode === 409) {
-             err.error.message;
-            this.openSnackBar( err.error.message);
+            err.error.message;
+            this.openSnackBar(err.error.message);
           }
         },
       });
