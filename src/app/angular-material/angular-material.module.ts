@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { MatCardModule } from '@angular/material/card'
-import { MatToolbarModule } from '@angular/material/toolbar'
+import { MatCardModule } from '@angular/material/card';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -17,7 +16,6 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSliderModule } from '@angular/material/slider';
-
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
@@ -43,8 +41,8 @@ const myModules = [
   MatButtonModule,
   MatSelectModule,
   MatFormFieldModule,
-  MatSnackBarModule
-]
+  MatSnackBarModule,
+];
 
 @NgModule({
   imports: [...myModules],
