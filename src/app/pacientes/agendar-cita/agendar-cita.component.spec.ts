@@ -8,9 +8,9 @@ describe('AgendarCitaComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AgendarCitaComponent ]
+      declarations: [AgendarCitaComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(AgendarCitaComponent);
     component = fixture.componentInstance;

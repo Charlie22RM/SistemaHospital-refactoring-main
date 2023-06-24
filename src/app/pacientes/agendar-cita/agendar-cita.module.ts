@@ -19,4 +19,4 @@ import { AgendarCitaComponent } from './agendar-cita.component';
     ReactiveFormsModule
   ],
 })
-export class AgendarCitaModule {}
+export class AgendarCitaModule { }

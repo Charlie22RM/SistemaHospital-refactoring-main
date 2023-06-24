@@ -23,20 +23,20 @@ export interface CitaAgendada {
 export class CitaAgendadaComponent implements OnInit {
   data!: CitaDisplay[];
   displayedColumns: string[] = ['turno', 'consultorio', 'fecha', 'horario'];
-  dataSource= new MatTableDataSource<CitaDisplay>();
+  dataSource = new MatTableDataSource<CitaDisplay>();
   constructor(
     private router: Router,
     private citaService: CitaService,
     private valueService: ValueService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
-    const paciente_id= this.valueService.id;
+    const paciente_id = this.valueService.id;
     this.citaService.getAllById(paciente_id).subscribe(
       {
-        next: async (res) =>{
+        next: async (res) => {
           console.log(res);
-          this.data=res;
+          this.data = res;
           console.log(this.data);
           this.dataSource = new MatTableDataSource(this.data);
         },

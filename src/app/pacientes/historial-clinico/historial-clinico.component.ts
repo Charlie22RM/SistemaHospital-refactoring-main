@@ -15,7 +15,7 @@ import { CitaDisplay } from 'src/app/models/cita';
   templateUrl: './historial-clinico.component.html',
   styleUrls: ['./historial-clinico.component.css'],
 })
-export class HistorialClinicoComponent implements OnInit{
+export class HistorialClinicoComponent implements OnInit {
   enfermedades!: FormGroup;
   private paciente_id: number = 0;
   historial!: HistorialDisplay;
@@ -57,21 +57,21 @@ export class HistorialClinicoComponent implements OnInit{
       hora: [null],
     });
   }
-  
+
   ngOnInit(): void {
     console.log("aqui estoy");
     this.paciente_id = this.valueService.id;
     console.log(this.paciente_id);
     let promise1 = this.getDataPaciente();
     let promise2 = this.getLastCita();
-    Promise.all([promise1,promise2]);
+    Promise.all([promise1, promise2]);
   }
 
   getDataPaciente() {
     this.pacienteService.getHistorial(this.paciente_id).subscribe({
       next: async (res) => {
         console.log(res);
-        this.historial=res;
+        this.historial = res;
         this.enfermedades.patchValue({
           nombre: this.historial.nombre,
           apellido: this.historial.apellido,
@@ -109,10 +109,10 @@ export class HistorialClinicoComponent implements OnInit{
     this.enfermedades.get('otros')!.disable();
   }
 
-  getLastCita(){
+  getLastCita() {
     this.citaService.getLastById(this.paciente_id).subscribe({
-      next: async (res) =>{
-        this.data=res;
+      next: async (res) => {
+        this.data = res;
         this.enfermedades.get('fecha')!.setValue(res[0].fecha);
         this.enfermedades.get('hora')!.setValue(res[0].hora);
         this.enfermedades.get('especialidad')!.setValue(res[0].consultorios[0].especialidad);

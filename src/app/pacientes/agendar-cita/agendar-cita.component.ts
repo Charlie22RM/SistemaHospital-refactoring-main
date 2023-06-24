@@ -102,13 +102,13 @@ export class AgendarCitaComponent implements OnInit {
 
   addCita(formData: any) {
     const fechaFormateada = format(formData.fecha, 'dd/MM/yyyy');
-    const data :Cita ={
+    const data: Cita = {
       userId: this.valueService.id,
       consultorioId: formData.especialidad,
-      fecha:fechaFormateada,
+      fecha: fechaFormateada,
       hora: formData.hora
     };
-    console.log("data: ",data);
+    console.log("data: ", data);
     this.citaService.createCita(data).subscribe({
       next: async (res) => {
         console.log(res);

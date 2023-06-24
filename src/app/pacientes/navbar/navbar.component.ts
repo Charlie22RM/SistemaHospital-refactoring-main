@@ -11,7 +11,7 @@ export class NavbarComponent {
   constructor(
     private router: Router,
     public valueService: ValueService
-  ) {}
+  ) { }
   onLogout() {
     this.valueService.CerrarSesion();
     this.router.navigate(['/login']);
