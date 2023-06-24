@@ -38,7 +38,7 @@ import { ConsultasExternasModule } from './consultas-externas/consultas-externas
     ListarPacientesModule,
     AgregarPacienteModule,
     EditarPacienteModule,
-    ConsultasExternasModule
-  ]
+    ConsultasExternasModule,
+  ],
 })
 export class AdministradorModule { }

@@ -20,7 +20,7 @@ export class ListarConsultoriosComponent implements OnInit {
     'actions',
   ];
   dataSource = new MatTableDataSource<Consultorio>();
-  filterValue: string = '';
+  filterValue = '';
   constructor(
     private router: Router,
     private consultorioService: ConsultorioService
@@ -44,10 +44,13 @@ export class ListarConsultoriosComponent implements OnInit {
   }
 
   editElement(consultorio: Consultorio) {
+    // eslint-disable-next-line camelcase
     const consultorio_id = consultorio.id;
+    // eslint-disable-next-line camelcase
     this.router.navigate(['administrador/editar-consultorio', consultorio_id]);
   }
   deleteConsultorio(consultorio: Consultorio) {
+    // eslint-disable-next-line camelcase
     const consultorio_id = consultorio.id;
 
     this.consultorioService.deleteConsultorio(consultorio_id).subscribe(() => {

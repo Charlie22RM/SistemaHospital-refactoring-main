@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MatSnackBar, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-agregar-paciente',
   templateUrl: './agregar-paciente.component.html',
-  styleUrls: ['./agregar-paciente.component.css']
+  styleUrls: ['./agregar-paciente.component.css'],
 })
 export class AgregarPacienteComponent implements OnInit {
   validateFrm!: FormGroup;
@@ -30,17 +30,15 @@ export class AgregarPacienteComponent implements OnInit {
     });
   }
 
-
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   submitForm() {
 
   }
 
-
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   crearcuenta() {
 
   }
-
-
 
   regresar() {
     this.router.navigate(['/administrador/listar-pacientes']);

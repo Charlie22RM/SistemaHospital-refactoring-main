@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBar, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { MedicoService } from 'src/app/services/medico.service';
@@ -8,11 +8,12 @@ import { MedicoDisplay } from 'src/app/models/medico';
 @Component({
   selector: 'app-editar-medico',
   templateUrl: './editar-medico.component.html',
-  styleUrls: ['./editar-medico.component.css']
+  styleUrls: ['./editar-medico.component.css'],
 })
 export class EditarMedicoComponent implements OnInit {
   validateFrm!: FormGroup;
-  public medico_id: number = 0;
+  // eslint-disable-next-line camelcase
+  public medico_id = 0;
   medico!: MedicoDisplay;
   durationInSeconds = 5;
   verticalPosition: MatSnackBarVerticalPosition = 'top';
@@ -35,8 +36,8 @@ export class EditarMedicoComponent implements OnInit {
   }
 
   async ngOnInit(): Promise<void> {
+    // eslint-disable-next-line camelcase
     this.medico_id = this.activatedRoute.snapshot.params['medico_id'];
-    let promise1 = await this.getMedico(this.medico_id);
   }
 
   submitForm() {
@@ -56,10 +57,11 @@ export class EditarMedicoComponent implements OnInit {
     // Código adicional
   }
 
+  // eslint-disable-next-line camelcase
   async getMedico(medico_id: number) {
     this.medicoService.getMedicoById(medico_id).subscribe({
       next: async (res) => {
-        console.log("medico: ", res);
+        console.log('medico: ', res);
         this.validateFrm = this.fb.group({
           email: [res.email, [Validators.required, Validators.email]],
           password: [res.password, [Validators.required]],
@@ -88,7 +90,7 @@ export class EditarMedicoComponent implements OnInit {
   editMedico(data: any) {
     this.medicoService.updateMedico(this.medico_id, data).subscribe({
       next: async (res) => {
-        this.openSnackBar("Medico editado");
+        this.openSnackBar('Medico editado');
         // Retraso de 2sg para mostrar el mensaje
         await new Promise((resolve) => setTimeout(resolve, 2000));
         this.router.navigate(['/administrador/listar-medicos']);

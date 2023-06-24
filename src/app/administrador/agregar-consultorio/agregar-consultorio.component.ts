@@ -83,7 +83,7 @@ export class AgregarConsultorioComponent implements OnInit {
     }
   }
 
-  addConsultorio(formData: any) {
+  addConsultorio(formData: unknown) {
     this.consultorioService.createConsultorio(formData).subscribe(
       {
         next: async (res) => {

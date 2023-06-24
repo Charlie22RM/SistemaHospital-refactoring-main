@@ -6,7 +6,7 @@ import { MatSnackBar, MatSnackBarVerticalPosition } from '@angular/material/snac
 @Component({
   selector: 'app-editar-paciente',
   templateUrl: './editar-paciente.component.html',
-  styleUrls: ['./editar-paciente.component.css']
+  styleUrls: ['./editar-paciente.component.css'],
 })
 export class EditarPacienteComponent implements OnInit {
   validateFrm!: FormGroup;
@@ -30,6 +30,7 @@ export class EditarPacienteComponent implements OnInit {
     });
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   submitForm() {
 
   }

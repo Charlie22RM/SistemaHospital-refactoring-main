@@ -21,8 +21,8 @@ export class ConsultasExternasComponent implements OnInit {
     'nombre_medico',
     'apellido_medico',
   ];
-  dataSource = new MatTableDataSource<Consultorio>();;
-  filterValue: string = '';
+  dataSource = new MatTableDataSource<Consultorio>();
+  filterValue = '';
 
   data2!: MedicoDisplay[];
   dataSource2 = new MatTableDataSource<MedicoDisplay>();
@@ -54,13 +54,10 @@ export class ConsultasExternasComponent implements OnInit {
       {
         next: async (res) => {
           this.data2 = res;
-          console.log("data2: ", this.data2);
+          console.log('data2: ', this.data2);
           this.dataSource2 = new MatTableDataSource(this.data2);
         },
       }
     );
   }
-
-
-
 }

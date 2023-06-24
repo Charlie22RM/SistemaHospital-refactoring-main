@@ -6,7 +6,7 @@ import { MedicoService } from 'src/app/services/medico.service';
 @Component({
   selector: 'app-listar-medicos',
   templateUrl: './listar-medicos.component.html',
-  styleUrls: ['./listar-medicos.component.css']
+  styleUrls: ['./listar-medicos.component.css'],
 })
 export class ListarMedicosComponent implements OnInit {
   data!: MedicoDisplay[];
@@ -30,7 +30,7 @@ export class ListarMedicosComponent implements OnInit {
       {
         next: async (res) => {
           this.data = res;
-          console.log("data: ", this.data);
+          console.log('data: ', this.data);
           this.dataSource = new MatTableDataSource(this.data);
         },
       }
@@ -46,10 +46,13 @@ export class ListarMedicosComponent implements OnInit {
     this.router.navigate(['administrador/agregar-medico']);
   }
   editMedico(medico: MedicoDisplay) {
+    // eslint-disable-next-line camelcase
     const medico_id = medico.id;
+    // eslint-disable-next-line camelcase
     this.router.navigate(['administrador/editar-medico', medico_id]);
   }
   deleteMedico(medico: MedicoDisplay) {
+    // eslint-disable-next-line camelcase
     const medico_id = medico.id;
     this.medicoService.deleteMedico(medico_id).subscribe(() => {
       this.medicoService.getAll().subscribe({

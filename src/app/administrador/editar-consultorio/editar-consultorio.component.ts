@@ -19,7 +19,8 @@ import { MedicoService } from 'src/app/services/medico.service';
 })
 export class EditarConsultorioComponent implements OnInit {
   validateFrm!: FormGroup;
-  public consultorio_id: number = 0;
+  // eslint-disable-next-line camelcase
+  public consultorio_id = 0;
   consultorio!: Consultorio;
   opcionesMedicos: OpcionesMedicos[] = [];
   durationInSeconds = 5;
@@ -34,17 +35,19 @@ export class EditarConsultorioComponent implements OnInit {
   ) {
     this.validateFrm = this.fb.group({
       especialidad: ['', [Validators.required]],
+      // eslint-disable-next-line camelcase
       medico_id: ['', [Validators.required, this.validateSeleccionEspecialidad]],
     });
   }
 
   async ngOnInit() {
-    //primero,con el id, buscaria un consultorio, y prodia en especialidad ese valor
-    //luego,saco de ese mismo consultorio,el medico id
-    //tendria que hacer un 2do llamado a la api para traer todos los medicos
+    // primero,con el id, buscaria un consultorio, y prodia en especialidad ese valor
+    // luego,saco de ese mismo consultorio,el medico id
+    // tendria que hacer un 2do llamado a la api para traer todos los medicos
+    // eslint-disable-next-line camelcase
     this.consultorio_id = this.activatedRoute.snapshot.params['consultorio_id'];
-    let promise1 = await this.getConsultorio(this.consultorio_id);
-    let promise2 = await this.getMedicosNames();
+    const promise1 = await this.getConsultorio(this.consultorio_id);
+    const promise2 = await this.getMedicosNames();
     Promise.all([promise1, promise2]);
   }
 
@@ -60,13 +63,12 @@ export class EditarConsultorioComponent implements OnInit {
       });
     }
   }
-  editConsultorio(formData: any) {
-    const medicoSeleccionada = this.validateFrm.value.medico_id;
+  editConsultorio(formData: unknown) {
     this.consultorioService.editConsultorio(this.consultorio_id, formData).subscribe(
       {
         next: async (res) => {
           console.log(res);
-          this.openSnackBar("Consultorio editado");
+          this.openSnackBar('Consultorio editado');
           // Retraso de 2sg para mostrar el mensaje
           await new Promise((resolve) => setTimeout(resolve, 2000));
           this.router.navigate(['/administrador']);
@@ -79,9 +81,10 @@ export class EditarConsultorioComponent implements OnInit {
         },
       });
   }
+  // eslint-disable-next-line camelcase
   async getConsultorio(consultorio_id: number) {
     try {
-      let response = await this.consultorioService.getOneById(consultorio_id);
+      const response = await this.consultorioService.getOneById(consultorio_id);
       console.log(response);
       this.consultorio = response;
       const consultorio = {
@@ -91,6 +94,7 @@ export class EditarConsultorioComponent implements OnInit {
       this.opcionesMedicos.push(consultorio);
       this.validateFrm = this.fb.group({
         especialidad: [this.consultorio.especialidad, [Validators.required]],
+        // eslint-disable-next-line camelcase
         medico_id: [
           this.consultorio.medico.id,
           [Validators.required, this.validateSeleccionEspecialidad],
@@ -104,7 +108,7 @@ export class EditarConsultorioComponent implements OnInit {
 
   async getMedicosNames() {
     try {
-      let response = await this.medicoService.getAllNames();
+      const response = await this.medicoService.getAllNames();
       const opcionesMedicos: OpcionesMedicos[] = [];
       response.forEach(
         (usuario: { id: number; nombre: string; apellido: string }) => {

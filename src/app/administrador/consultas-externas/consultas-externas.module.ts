@@ -10,11 +10,9 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
-
-
 @NgModule({
   declarations: [
-    ConsultasExternasComponent
+    ConsultasExternasComponent,
   ],
   imports: [
     CommonModule,
@@ -29,8 +27,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatInputModule,
     ReactiveFormsModule,
     MatGridListModule,
-    MatCheckboxModule, JsonPipe,
-    MatTabsModule
-  ]
+    MatCheckboxModule,
+    JsonPipe,
+    MatTabsModule,
+  ],
 })
 export class ConsultasExternasModule { }

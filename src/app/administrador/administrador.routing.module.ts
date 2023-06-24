@@ -7,7 +7,6 @@ import { AgregarConsultorioComponent } from './agregar-consultorio/agregar-consu
 import { ListarMedicosComponent } from './listar-medicos/listar-medicos.component';
 import { AgregarMedicoComponent } from './agregar-medico/agregar-medico.component';
 import { EditarMedicoComponent } from './editar-medico/editar-medico.component';
-import { ListarPacientesComponent } from './listar-pacientes/listar-pacientes.component';
 import { AgregarPacienteComponent } from './agregar-paciente/agregar-paciente.component';
 import { EditarPacienteComponent } from './editar-paciente/editar-paciente.component';
 import { ConsultasExternasComponent } from './consultas-externas/consultas-externas.component';
