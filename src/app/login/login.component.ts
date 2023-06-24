@@ -12,8 +12,8 @@ import { MatSnackBar, MatSnackBarVerticalPosition } from '@angular/material/snac
 })
 export class LoginComponent implements OnInit {
   validateFrm!: FormGroup;
-  userErrorMessage: string='';
-  passwordErrorMessage: string='';
+  userErrorMessage: string = '';
+  passwordErrorMessage: string = '';
   durationInSeconds = 5;
   verticalPosition: MatSnackBarVerticalPosition = 'top';
   constructor(
@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
     private authService: AuthService,
     private valueService: ValueService,
     private snackBar: MatSnackBar
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     //this.valueService.CerrarSesion();
@@ -53,14 +53,14 @@ export class LoginComponent implements OnInit {
         this.valueService.setToken(res.token);
         this.valueService.token = res.token;
         this.valueService.setId(res.user.id);
-        this.valueService.id=res.user.id;
-        if(res.user.rol.id ===1){
+        this.valueService.id = res.user.id;
+        if (res.user.rol.id === 1) {
           this.router.navigate(['/pacientes']);
         }
-        if(res.user.rol.id ===2){
+        if (res.user.rol.id === 2) {
           this.router.navigate(['/medicos']);
         }
-        if(res.user.rol.id ===3){
+        if (res.user.rol.id === 3) {
           this.router.navigate(['/administrador']);
         }
       },
@@ -76,8 +76,8 @@ export class LoginComponent implements OnInit {
       },
     });
   }
-  openSnackBar(errorMessage:string) {
-    this.snackBar.open(errorMessage,'Cerrar',{
+  openSnackBar(errorMessage: string) {
+    this.snackBar.open(errorMessage, 'Cerrar', {
       duration: this.durationInSeconds * 1000,
       verticalPosition: this.verticalPosition,
     });

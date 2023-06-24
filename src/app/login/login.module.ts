@@ -18,4 +18,4 @@ import { MatInputModule } from '@angular/material/input';
     NgIf,
   ],
 })
-export class LoginModule {}
+export class LoginModule { }
