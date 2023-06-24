@@ -98,7 +98,7 @@ export class HistorialClinicoComponent implements OnInit {
           otrosDescripcion: this.historial.historialClinico?.otrosDescripcion,
         });
       },
-    })
+    });
   }
   submitForm() {
     if (this.enfermedades.valid) {
@@ -132,6 +132,7 @@ export class HistorialClinicoComponent implements OnInit {
       console.log(err);
     }
     try {
+      // eslint-disable-next-line camelcase
       const historial_id = this.historial.historialClinico!.id;
       await this.pacienteService.updateHistorial(historial_id, datosRestantes);
       this.openSnackBar('Historial editado');
