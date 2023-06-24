@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-
-
 import { MatSnackBar, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { MedicoService } from 'src/app/services/medico.service';
 import { MedicoDisplay } from 'src/app/models/medico';
@@ -18,6 +16,7 @@ export class EditarMedicoComponent implements OnInit {
   medico!: MedicoDisplay;
   durationInSeconds = 5;
   verticalPosition: MatSnackBarVerticalPosition = 'top';
+
   constructor(
     private router: Router,
     private fb: FormBuilder,
@@ -38,10 +37,7 @@ export class EditarMedicoComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     this.medico_id = this.activatedRoute.snapshot.params['medico_id'];
     let promise1 = await this.getMedico(this.medico_id);
-
-
   }
-
 
   submitForm() {
     if (this.validateFrm.valid) {
@@ -56,32 +52,30 @@ export class EditarMedicoComponent implements OnInit {
     }
   }
 
-
   crearcuenta() {
-
+    // Código adicional
   }
 
   async getMedico(medico_id: number) {
-    this.medicoService.getMedicoById(medico_id).subscribe(
-      {
-        next: async (res) => {
-          console.log("medico: ", res);
-          this.validateFrm = this.fb.group({
-            email: [res.email, [Validators.required, Validators.email]],
-            password: [res.password, [Validators.required]],
-            cedula: [res.cedula, [Validators.required]],
-            nombre: [res.nombre, [Validators.required]],
-            apellido: [res.apellido, [Validators.required]],
-            direccion: [res.direccion, [Validators.required]],
-          });
-        },
-        error: (err) => {
-          if (err.error.statusCode === 409) {
-            err.error.message;
-            this.openSnackBar(err.error.message);
-          }
-        },
-      });
+    this.medicoService.getMedicoById(medico_id).subscribe({
+      next: async (res) => {
+        console.log("medico: ", res);
+        this.validateFrm = this.fb.group({
+          email: [res.email, [Validators.required, Validators.email]],
+          password: [res.password, [Validators.required]],
+          cedula: [res.cedula, [Validators.required]],
+          nombre: [res.nombre, [Validators.required]],
+          apellido: [res.apellido, [Validators.required]],
+          direccion: [res.direccion, [Validators.required]],
+        });
+      },
+      error: (err) => {
+        if (err.error.statusCode === 409) {
+          err.error.message;
+          this.openSnackBar(err.error.message);
+        }
+      },
+    });
   }
 
   openSnackBar(Message: string) {
@@ -92,21 +86,20 @@ export class EditarMedicoComponent implements OnInit {
   }
 
   editMedico(data: any) {
-    this.medicoService.updateMedico(this.medico_id, data).subscribe(
-      {
-        next: async (res) => {
-          this.openSnackBar("Medico editado");
-          //Retraso de 2sg para mostrar el mensaje
-          await new Promise((resolve) => setTimeout(resolve, 2000));
-          this.router.navigate(['/administrador/listar-medicos']);
-        },
-        error: (err) => {
-          if (err.error.statusCode === 409) {
-            err.error.message;
-            this.openSnackBar(err.error.message);
-          }
-        },
-      });
+    this.medicoService.updateMedico(this.medico_id, data).subscribe({
+      next: async (res) => {
+        this.openSnackBar("Medico editado");
+        // Retraso de 2sg para mostrar el mensaje
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+        this.router.navigate(['/administrador/listar-medicos']);
+      },
+      error: (err) => {
+        if (err.error.statusCode === 409) {
+          err.error.message;
+          this.openSnackBar(err.error.message);
+        }
+      },
+    });
   }
 
   regresar() {
