@@ -20,10 +20,10 @@ import { LoginModule } from './login/login.module';
     HttpClientModule,
     RegisterModule,
     LoginModule,
-    AngularMaterialModule
+    AngularMaterialModule,
   ],
   providers: [],
   exports: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
