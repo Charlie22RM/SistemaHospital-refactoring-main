@@ -114,7 +114,7 @@ export class HistorialClinicoComponent implements OnInit {
     const nombres = {
       nombre: formData.nombre,
       apellido: formData.apellido
-    }
+    };
     console.log("nombres: ", nombres);
 
     const datosRestantes = {
@@ -133,7 +133,7 @@ export class HistorialClinicoComponent implements OnInit {
       const historial_id = this.historial.historialClinico!.id;
       await this.pacienteService.updateHistorial(historial_id, datosRestantes);
       this.openSnackBar("Historial editado");
-      //Retraso de 2sg para mostrar el mensaje
+      // Retraso de 2sg para mostrar el mensaje
       await new Promise((resolve) => setTimeout(resolve, 2000));
       this.router.navigate(['/medicos']);
     } catch (err: any) {
@@ -143,7 +143,6 @@ export class HistorialClinicoComponent implements OnInit {
     }
 
   }
-
 
   openSnackBar(Message: string) {
     this.snackBar.open(Message, 'Cerrar', {
