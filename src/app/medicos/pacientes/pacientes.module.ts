@@ -20,6 +20,6 @@ import { MatRadioModule } from '@angular/material/radio';
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule
-  ]
+  ],
 })
 export class PacientesModule { }
