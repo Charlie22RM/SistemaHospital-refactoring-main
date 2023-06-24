@@ -46,9 +46,9 @@ export class EditarConsultorioComponent implements OnInit {
     // tendria que hacer un 2do llamado a la api para traer todos los medicos
     // eslint-disable-next-line camelcase
     this.consultorio_id = this.activatedRoute.snapshot.params['consultorio_id'];
-    const promise1 = await this.getConsultorio(this.consultorio_id);
-    const promise2 = await this.getMedicosNames();
-    Promise.all([promise1, promise2]);
+    const promise1 = this.getConsultorio(this.consultorio_id);
+    const promise2 = this.getMedicosNames();
+    await Promise.all([promise1, promise2]);
   }
 
   submitForm() {
