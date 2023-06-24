@@ -9,10 +9,6 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
-
-
-
-
 @NgModule({
   declarations: [
     HistorialClinicoComponent
