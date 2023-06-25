@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { Consultorio } from 'src/app/models/consultorio';
-import { UserDisplay } from 'src/app/models/user';
 import { ConsultorioService } from 'src/app/services/consultorio.service';
 
 @Component({
