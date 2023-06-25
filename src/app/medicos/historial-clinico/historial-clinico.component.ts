@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import {
@@ -112,6 +113,7 @@ export class HistorialClinicoComponent implements OnInit {
       });
     }
   }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   async editarHistorial(formData: any) {
     const nombres = {
       nombre: formData.nombre,
@@ -139,6 +141,7 @@ export class HistorialClinicoComponent implements OnInit {
       // Retraso de 2sg para mostrar el mensaje
       await new Promise((resolve) => setTimeout(resolve, 2000));
       this.router.navigate(['/medicos']);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       // Captura el error y maneja el caso de error aquí
       this.openSnackBar('error');
