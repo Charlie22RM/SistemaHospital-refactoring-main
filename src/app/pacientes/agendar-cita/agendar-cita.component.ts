@@ -99,6 +99,7 @@ export class AgendarCitaComponent implements OnInit {
     }
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   addCita(formData: any) {
     const fechaFormateada = format(formData.fecha, 'dd/MM/yyyy');
     const data: Cita = {

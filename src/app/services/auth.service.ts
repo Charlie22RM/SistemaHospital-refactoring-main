@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -11,6 +12,7 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public login(paramsData: any): Observable<any> {
     const url = `${environment.apiUrl}auth/login`;
     const headers = new HttpHeaders({

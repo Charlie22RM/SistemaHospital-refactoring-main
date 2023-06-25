@@ -58,7 +58,7 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   crearcuenta(formData: any) {
     this.authService.register(formData).subscribe(
       {
