@@ -37,8 +37,8 @@ export class AgregarConsultorioComponent implements OnInit {
       ],
     });
   }
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   async ngOnInit() {
-    const promise1 = await this.getMedicosNames();
 
   }
 
