@@ -1,3 +1,8 @@
+/**
+ * Componente para la página de médicos.
+ * @remarks
+ * Este componente representa la página principal de médicos en la aplicación.
+ */
 import { Component } from '@angular/core';
 
 @Component({
